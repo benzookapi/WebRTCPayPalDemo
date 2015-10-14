@@ -51,8 +51,7 @@
   // create socket
   var socketReady = false;
   var socket_url = window.location.href;
-  socket_url = socket_url.substring(0, socket_url.lastIndexOf('/')) + '/socket.io/socket.io.js';
-  alert(socket_url);
+  socket_url = socket_url.substring(0, socket_url.lastIndexOf('/')+1);
   var socket = io.connect(socket_url);
   // socket: channel connected
   socket.on('connect', onOpened)
