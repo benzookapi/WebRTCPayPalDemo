@@ -232,11 +232,15 @@
   }
 
   function sendOffer() {
+    alert("2");
     peerConnection = prepareNewConnection();
+    alert("3");
     peerConnection.createOffer(function (sessionDescription) { // in case of success
+      alert("4");
       peerConnection.setLocalDescription(sessionDescription);
-      alert("Sending: SDP");
-      alert(sessionDescription);
+      alert("5");
+      console.log("Sending: SDP");
+      console.log(sessionDescription);
       sendSDP(sessionDescription);
     }, function () { // in case of error
       alert("Create Offer failed");
@@ -254,7 +258,7 @@
   function sendAnswer(evt) {
     console.log('sending Answer. Creating remote session description...' );
 	if (! peerConnection) {
-	  console.error('peerConnection NOT exist!');
+	  alert('peerConnection NOT exist!');
 	  return;
 	}
 
@@ -264,7 +268,7 @@
       console.log(sessionDescription);
       sendSDP(sessionDescription);
     }, function () { // in case of error
-      console.log("Create Answer failed");
+      alert("Create Answer failed");
     }, mediaConstraints);
   }
 
