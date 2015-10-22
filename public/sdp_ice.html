@@ -245,7 +245,7 @@
 
   function setOffer(evt) {
     if (peerConnection) {
-	  console.error('peerConnection alreay exist!');
+	  alert('peerConnection alreay exist!');
 	}
     peerConnection = prepareNewConnection();
     peerConnection.setRemoteDescription(new RTCSessionDescription(evt));
@@ -270,7 +270,7 @@
 
   function setAnswer(evt) {
     if (! peerConnection) {
-	  console.error('peerConnection NOT exist!');
+	  alert('peerConnection NOT exist!');
 	  return;
 	}
 	peerConnection.setRemoteDescription(new RTCSessionDescription(evt));
@@ -279,12 +279,9 @@
   // -------- handling user UI event -----
   // start the connection upon user request
   function connect() {
-    alert("1");
     if (!peerStarted && localStream && socketReady) { // **
 	//if (!peerStarted && localStream) { // --
-  alert("2");
       sendOffer();
-      alert("3");
       peerStarted = true;
     } else {
       alert("Local stream not running yet - try again.");
