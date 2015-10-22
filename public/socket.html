@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>WebRTC 1 to 1 signaling</title>
+  <script src="adapter.js"></script>
+
 </head>
 <body>
   <button type="button" onclick="startVideo();">Start video</button>
@@ -160,10 +162,12 @@
   // ---------------------- video handling -----------------------
   // start local video
   function startVideo() {
-	navigator.webkitGetUserMedia({video: true, audio: false},
+	//navigator.webkitGetUserMedia({video: true, audio: false},
+  getUserMedia({video: true, audio: false},
     function (stream) { // success
       localStream = stream;
-      localVideo.src = window.webkitURL.createObjectURL(stream);
+      //localVideo.src = window.webkitURL.createObjectURL(stream);
+      attachMediaStream(localVideo, stream);
       localVideo.play();
 	  localVideo.volume = 0;
     },
@@ -185,7 +189,8 @@
     var pc_config = {"iceServers":[]};
     var peer = null;
     try {
-      peer = new webkitRTCPeerConnection(pc_config);
+      //peer = new webkitRTCPeerConnection(pc_config);
+      peer = new RTCPeerConnection(pc_config);
     } catch (e) {
       console.log("Failed to create peerConnection, exception: " + e.message);
     }
@@ -213,7 +218,8 @@
     // when remote adds a stream, hand it on to the local video element
     function onRemoteStreamAdded(event) {
       console.log("Added remote stream");
-      remoteVideo.src = window.webkitURL.createObjectURL(event.stream);
+      //remoteVideo.src = window.webkitURL.createObjectURL(event.stream);
+      attachMediaStream(remoteVideo, event.stream);
     }
 
     // when remote removes a stream, remove it from the local video element
