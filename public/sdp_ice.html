@@ -172,7 +172,7 @@
 	  localVideo.volume = 0;
     },
     function (error) { // error
-      console.error('An error occurred: [CODE ' + error.code + ']');
+      alert('An error occurred: [CODE ' + error.code + ']');
       return;
     }
 	);
@@ -232,13 +232,9 @@
   }
 
   function sendOffer() {
-    alert("2");
     peerConnection = prepareNewConnection();
-    alert("3");
     peerConnection.createOffer(function (sessionDescription) { // in case of success
-      alert("4");
       peerConnection.setLocalDescription(sessionDescription);
-      alert("5");
       console.log("Sending: SDP");
       console.log(sessionDescription);
       sendSDP(sessionDescription);
@@ -285,7 +281,6 @@
   function connect() {
     if (!peerStarted && localStream && socketReady) { // **
 	//if (!peerStarted && localStream) { // --
-  alert("1");
       sendOffer();
       peerStarted = true;
     } else {
