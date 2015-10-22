@@ -279,13 +279,13 @@
   // -------- handling user UI event -----
   // start the connection upon user request
   function connect() {
-    if (!peerStarted && localStream && socketReady) { // **
+    //if (!peerStarted && localStream && socketReady) { // **
 	//if (!peerStarted && localStream) { // --
       sendOffer();
       peerStarted = true;
-    } else {
-      alert("Local stream not running yet - try again.");
-    }
+    //} else {
+    //  alert("Local stream not running yet - try again.");
+    //}
   }
 
   // stop the connection upon user request
