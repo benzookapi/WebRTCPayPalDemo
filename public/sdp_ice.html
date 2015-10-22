@@ -235,11 +235,11 @@
     peerConnection = prepareNewConnection();
     peerConnection.createOffer(function (sessionDescription) { // in case of success
       peerConnection.setLocalDescription(sessionDescription);
-      console.log("Sending: SDP");
-      console.log(sessionDescription);
+      alert("Sending: SDP");
+      alert(sessionDescription);
       sendSDP(sessionDescription);
     }, function () { // in case of error
-      console.log("Create Offer failed");
+      alert("Create Offer failed");
     }, mediaConstraints);
   }
 
