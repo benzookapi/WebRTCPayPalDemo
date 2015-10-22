@@ -281,6 +281,7 @@
   function connect() {
     if (!peerStarted && localStream && socketReady) { // **
 	//if (!peerStarted && localStream) { // --
+  alert("1");
       sendOffer();
       peerStarted = true;
     } else {
