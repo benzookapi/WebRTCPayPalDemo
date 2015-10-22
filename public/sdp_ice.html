@@ -192,7 +192,7 @@
       //peer = new webkitRTCPeerConnection(pc_config);
       peer = new RTCPeerConnection(pc_config);
     } catch (e) {
-      console.log("Failed to create peerConnection, exception: " + e.message);
+      alert("Failed to create peerConnection, exception: " + e.message);
     }
 
     // send any ice candidates to the other peer
