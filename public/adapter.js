@@ -252,7 +252,8 @@ if (typeof window === 'undefined' || !window.navigator) {
     }
 
     var pc = new webkitRTCPeerConnection(pcConfig, pcConstraints); // jscs:ignore requireCapitalizedConstructors
-    var origGetStats = pc.getStats.bind(pc);
+    //var origGetStats = pc.getStats.bind(pc);
+    var origGetStats = pc.getStats;
     pc.getStats = function(selector, successCallback, errorCallback) { // jshint ignore: line
       var self = this;
       var args = arguments;
