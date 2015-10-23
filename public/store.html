@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>デジタル雑貨屋</title>
+  <title>デジタル雑貨べんぞー</title>
 </head>
 <body>
-  <h1>デジタル雑貨屋べんぞー</h1>
+  <h1>デジタル雑貨べんぞー</h1>
   <button type="button" onclick="startVideo();">お店にはいる</button>
   &nbsp;&nbsp;
   <button type="button" onclick="connect();">すいませーん</button>
@@ -20,7 +20,7 @@
    <video id="remote-video" autoplay style="width: 240px; height: 180px; border: 1px solid black;"></video>
   </div>
 
-<h2>どれも安いよー</h2>
+<h2>どれも安いよー（値段は聞いてねー）</h2>
 
   <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/store.html?txt=kitaro.png&amt=3000">
     鬼太郎スタンプ
@@ -89,7 +89,7 @@ if (i != -1) {
   var localStream = null;
   var peerConnection = null;
   var peerStarted = false;
-  var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':false, 'OfferToReceiveVideo':true }};
+  var mediaConstraints = {'mandatory': {'OfferToReceiveAudio':true, 'OfferToReceiveVideo':true }};
 
 
   // ---- socket ------
