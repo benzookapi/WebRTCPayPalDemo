@@ -22,18 +22,23 @@
 
 <h2>どれも安いよー</h2>
 
-  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html&amt=3000&txt=">
+  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html?txt=kitaro.png&amt=3000">
     鬼太郎スタンプ
   </a>
   &nbsp;&nbsp;
-  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html&amt=3000&txt=">
-    悟空スタンプ
+  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html?txt=dragonball.png&amt=5000">
+    ドラゴンボールスタンプ
   </a>
   &nbsp;&nbsp;
-  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html&amt=3000&txt=">
+  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html?txt=draemon.png&amt=10000">
     ドラえもんスタンプ
   </a>
   &nbsp;&nbsp;
+
+<p id="p_stamp" style="visibility:hidden;">
+あいよ！<br/>
+<a href="" target="_blank" id="a_stamp"></a>
+</p>
 
 
   <p style="visibility:hidden;">
@@ -55,6 +60,22 @@
    <textarea id="text-for-receive-ice" rows="5" cols="100"></textarea><br />
    <button type="button" onclick="onICE();">Receive ICE Candidates</button>
  </p>-->
+
+
+
+<script>
+var p = location.search;
+alert(p);
+var i = p.indexOf("txt=");
+alert(i);
+if (i != -1) {
+  t = p.substring(i + "txt=".length);
+  alert(t);
+  document.getElementById('a_stamp').href="/images/" + t;
+  document.getElementById('a_stamp').innerText="/images/" + t;
+  document.getElementById('p_stamp').style="visibility:display";
+}
+</script>
 
 
 
