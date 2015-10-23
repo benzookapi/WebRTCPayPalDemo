@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WebRTC 1 to 1 signaling</title>
+  <title>デジタル雑貨屋</title>
 </head>
 <body>
-  <button type="button" onclick="startVideo();">Start video</button>
-  <button type="button" onclick="stopVideo();">Stop video</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="button" onclick="connect();">Connect</button>
-  <button type="button" onclick="hangUp();">Hang Up</button>
+  <h1>デジタル雑貨屋べんぞー</h1>
+  <button type="button" onclick="startVideo();">お店にはいる</button>
+  &nbsp;&nbsp;
+  <button type="button" onclick="stopVideo();">お店から出る</button>
+  &nbsp;&nbsp;
+  <button type="button" onclick="connect();">すいませーん</button>
+  &nbsp;&nbsp;
+  <button type="button" onclick="hangUp();">出直してくる</button>
+  <br />
   <br />
   <div>
    <video id="local-video" autoplay style="width: 240px; height: 180px; border: 1px solid black;"></video>
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <video id="remote-video" autoplay style="width: 240px; height: 180px; border: 1px solid black;"></video>
   </div>
 
-  <p>
+<h2>どれも安いよー</h2>
+
+  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html&amt=3000&txt=">
+    鬼太郎スタンプ
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html&amt=3000&txt=">
+    悟空スタンプ
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://jo-pp-ruby-demo.herokuapp.com/demo/checkout?redirect=https://jo-pp-webrtc.herokuapp.com/chat.html&amt=3000&txt=">
+    ドラえもんスタンプ
+  </a>
+  &nbsp;&nbsp;
+
+
+  <p style="visibility:hidden;">
    SDP to send:<br />
    <textarea id="text-for-send-sdp" rows="5" cols="100" disabled="1">SDP to send</textarea>
   </p>
@@ -25,7 +46,7 @@
    <button type="button" onclick="onSDP();">Receive SDP</button>
  </p>-->
 
-  <p>
+  <p style="visibility:hidden;">
    ICE Candidate to send:<br />
    <textarea id="text-for-send-ice" rows="5" cols="100" disabled="1">ICE Candidate to send</textarea>
   </p>
@@ -34,6 +55,9 @@
    <textarea id="text-for-receive-ice" rows="5" cols="100"></textarea><br />
    <button type="button" onclick="onICE();">Receive ICE Candidates</button>
  </p>-->
+
+
+
 
   <!---- socket ------>
   <script src="/socket.io/socket.io.js"></script>
@@ -228,11 +252,9 @@
   function sendOffer() {
     peerConnection = prepareNewConnection();
     peerConnection.createOffer(function (sessionDescription) { // in case of success
-      alert("aaaa");
       peerConnection.setLocalDescription(sessionDescription);
       console.log("Sending: SDP");
       console.log(sessionDescription);
-      alert("bbbb");
       sendSDP(sessionDescription);
     }, function () { // in case of error
       alert("Create Offer failed");
