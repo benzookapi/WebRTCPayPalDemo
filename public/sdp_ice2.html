@@ -228,9 +228,11 @@
   function sendOffer() {
     peerConnection = prepareNewConnection();
     peerConnection.createOffer(function (sessionDescription) { // in case of success
+      alert("aaaa");
       peerConnection.setLocalDescription(sessionDescription);
       console.log("Sending: SDP");
       console.log(sessionDescription);
+      alert("bbbb");
       sendSDP(sessionDescription);
     }, function () { // in case of error
       alert("Create Offer failed");
