@@ -36,7 +36,7 @@
   &nbsp;&nbsp;
 
 <p id="p_stamp" style="visibility:hidden;">
-<h2 style="color:blue">あいよ！</h2>
+<h2 style="color:red">あいよ！</h2>
 <a href="" target="_blank" id="a_stamp"></a>
 </p>
 
@@ -65,12 +65,9 @@
 
 <script>
 var p = location.search;
-alert(p);
 var i = p.indexOf("txt=");
-alert(i);
 if (i != -1) {
   t = p.substring(i + "txt=".length);
-  alert("aaaaa" + t);
   document.getElementById('a_stamp').href="/images/" + t;
   document.getElementById('a_stamp').innerHTML="/images/" + t;
   document.getElementById('p_stamp').style.visibility="visible";
