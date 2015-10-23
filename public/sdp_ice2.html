@@ -239,7 +239,7 @@
 
   function setOffer(evt) {
     if (peerConnection) {
-	  ('peerConnection alreay exist!');
+	  alert('peerConnection alreay exist!');
 	}
     peerConnection = prepareNewConnection();
     peerConnection.setRemoteDescription(new RTCSessionDescription(evt));
